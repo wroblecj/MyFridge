@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MyFridge Contents</string>
+    <string name="share">share</string>
+    <string name="options">options</string>
+    <string name="settings">settings</string>
+    <string name="help">help</string>
+    <string name="look">A Look In My Fridge</string>
+    <string name="recipes">Recipes</string>
+    <string name="favorite">Favorite Recipes</string>
+    <string name="grocerylist">Grocery List</string>
+    <string name="selected_item">My Fridge Contents:</string>
+
+    <string-array name="MenuContents">
+        <item>Beef Stroganoff</item>
+        <item>Pad Thai</item>
+        <item>Quinoa Salad</item>
+        <item>Moms Chili</item>
+    </string-array>
+
+</resources>
