@@ -1,0 +1,44 @@
+{
+  "item": [
+
+    {
+      "id":"01",
+      "name": "milk",
+      "type": "dairy",
+      "quantity": "16",
+      "measurement": "oz"
+    },
+
+    {
+      "id":"02",
+      "name": "cheese",
+      "type": "dairy",
+      "quantity": "8",
+      "measurement": "oz"
+    },
+
+    {
+      "id":"03",
+      "name": "eggs",
+      "type": "dairy",
+      "quantity": "12",
+      "measurement": "count"
+    },
+
+    {
+      "id":"04",
+      "name": "ham",
+      "type": "protein",
+      "quantity": "16",
+      "measurement": "oz"
+    },
+
+    {
+      "id":"05",
+      "name": "ketchup",
+      "type": "condiment",
+      "quantity": "12",
+      "measurement": "oz"
+    }
+  ]
+}
