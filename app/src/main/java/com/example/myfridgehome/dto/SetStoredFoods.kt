@@ -9,16 +9,19 @@ import java.io.OutputStreamWriter
 import java.io.StringWriter
 
 
-
 //this class collects the user input and converts it into a writable string format.
-abstract class SetStoredFoods(var name: String, var type: String, var quantity : Int, var measurement : String)
-{
+abstract class SetStoredFoods(
+    var name: String,
+    var type: String,
+    var quantity: Int,
+    var measurement: String
+) {
     //collects input from the user and assigns to local values.
     val nm = name
     val ty = type
     val qt = quantity
     val mt = measurement
-    val filename : String = "../assets/storedIngredients.json"
+    val filename: String = "../assets/storedIngredients.json"
 
     @Throws(IOException::class)
     open fun writeJsonStream(
@@ -57,7 +60,6 @@ abstract class SetStoredFoods(var name: String, var type: String, var quantity :
     @Throws(IOException::class)
     open fun writeFoodItem(writer: JsonWriter, food: String) {
         writer.beginObject()
-
         writer.endObject()
     }
 
@@ -74,13 +76,10 @@ abstract class SetStoredFoods(var name: String, var type: String, var quantity :
     }
 
 
-
-
-    fun sendToJson(){
-        var item : String = toString()
-        var writer : JsonWriter
+    fun sendToJson() {
+        var item: String = toString()
+        var writer: JsonWriter
         val output = StringWriter()
-
     }
 
     //    fun writeMessage(js: JsonWriter, message : String){
@@ -89,7 +88,5 @@ abstract class SetStoredFoods(var name: String, var type: String, var quantity :
     override fun toString(): String {
         //adds user inputted information to a string that is labelled for each item.
         return "Category [name: ${this.nm}, type: ${this.ty}, quantity: ${this.qt}], measurement: ${this.mt}"
-
-
     }
 }
