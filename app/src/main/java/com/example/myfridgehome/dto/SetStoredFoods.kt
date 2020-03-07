@@ -29,7 +29,7 @@ abstract class SetStoredFoods(
         messages: List<Message>
     ) {
         val writer =
-            JsonWriter(OutputStreamWriter(out, "UTF-8"))
+            JsonWriter(OutputStreamWriter(out, "UTF-8"))  //Typing Error
         writer.setIndent("  ")
         writeMessagesArray(writer, messages)
         writer.close()
