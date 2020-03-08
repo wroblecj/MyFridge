@@ -44,6 +44,7 @@ abstract class SetStoredFoods(var name: String, var type: String, var quantity :
         writer.endArray()
     }
 
+    
     @Throws(IOException::class)
     open fun writeMessage(writer: JsonWriter, message: Notification.MessagingStyle.Message) {
         writer.beginObject()
