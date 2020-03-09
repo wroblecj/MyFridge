@@ -1,5 +1,7 @@
 package com.example.myfridgehome.dto
 
-data class Recipe(var getTitle : String) {
-    var title: String = getTitle
+data class Recipe(var title : String = "") {
+    override fun toString(): String {
+        return "$title"
+    }
 }
