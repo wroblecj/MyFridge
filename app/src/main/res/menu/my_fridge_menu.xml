@@ -4,12 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.myfridgehome.MainActivity">
 
-    <item android:id="@+id/menu_3_dots"
-        android:title="@string/share"
-        android:icon="@drawable/ic_menu_black_24dp"
-        app:showAsAction="always"
-        />
 
+    <item android:id="@+id/ActionBtnMyFridge"
+        android:title="My Fridge"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/ActionBtnRecipes"
+        android:title="Recipes"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/ActionBtnFavorites"
+        android:title="Favorite Recipes"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/ActionBtnGrocery"
+        android:title="Grocery List"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/ActionBtnSearch"
+        android:title="Search"
+        app:showAsAction="never" />
 
 
 

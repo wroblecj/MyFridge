@@ -1,42 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E3CDB8"
     tools:context=".MainActivity">
-
-
-    <!--    <ImageView-->
-    <!--        android:id="@+id/imageView"-->
-    <!--        android:layout_width="80dp"-->
-    <!--        android:layout_height="80dp"-->
-    <!--        android:layout_marginStart="185dp"-->
-    <!--        android:layout_marginLeft="185dp"-->
-    <!--        android:layout_marginEnd="206dp"-->
-    <!--        android:layout_marginRight="206dp"-->
-    <!--        android:layout_marginBottom="632dp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:srcCompat="@drawable/androidimagebutton1" />-->
-
-    <!--    <ImageButton-->
-    <!--        android:id="@+id/image_button"-->
-    <!--        android:layout_width="80dp"-->
-    <!--        android:layout_height="80dp"-->
-    <!--        android:layout_marginStart="331dp"-->
-    <!--        android:layout_marginLeft="331dp"-->
-    <!--        android:layout_marginTop="3dp"-->
-    <!--        android:layout_marginBottom="648dp"-->
-    <!--        android:foregroundGravity="right"-->
-    <!--        android:src="@drawable/androidimagebutton1"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
 
     <Spinner
@@ -52,23 +23,23 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/BtnMyFridge"
         android:layout_width="308dp"
         android:layout_height="62dp"
-        android:layout_marginStart="191dp"
-        android:layout_marginLeft="191dp"
+        android:layout_marginStart="197dp"
+        android:layout_marginLeft="197dp"
         android:layout_marginTop="147dp"
         android:layout_marginEnd="19dp"
         android:layout_marginRight="19dp"
         android:text="@string/look"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/BtnRecipes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/BtnRecipes"
         android:layout_width="308dp"
         android:layout_height="62dp"
         android:layout_marginStart="197dp"
@@ -76,14 +47,14 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:text="@string/recipes"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/BtnFvtRecipes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/BtnMyFridge" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/BtnFvtRecipes"
         android:layout_width="308dp"
         android:layout_height="62dp"
         android:layout_marginStart="197dp"
@@ -99,7 +70,7 @@
         app:layout_constraintVertical_bias="0.473" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/BtnGrocery"
         android:layout_width="308dp"
         android:layout_height="62dp"
         android:layout_marginStart="197dp"
@@ -111,8 +82,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/BtnFvtRecipes"
         app:layout_constraintVertical_bias="0.0" />
+
+    <SearchView
+        android:layout_width="332dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="42dp"
+        android:focusable="auto"
+        android:hapticFeedbackEnabled="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/BtnMyFridge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

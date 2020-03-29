@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">MyFridge Contents</string>
-    <string name="share">share</string>
+    <string name="app_name">MyFridge</string>
+    <string name="action_bar_button">MyFridge Locations</string>
     <string name="options">options</string>
     <string name="settings">settings</string>
     <string name="help">help</string>
@@ -9,6 +9,12 @@
     <string name="favorite">Favorite Recipes</string>
     <string name="grocerylist">Grocery List</string>
     <string name="selected_item">My Fridge Contents:</string>
+    <string name="ingredients_label">Ingredients</string>
+    <string name="ingredient_item">\u2022  %1$s</string>
+    <string name="calories">(%1$s calories)</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="recipe_count_msg">Recipe Count: %1$s</string>
+    <string name="share">share</string>
 
     <string-array name="MenuContents">
         <item>Beef Stroganoff</item>
