@@ -7,7 +7,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 open class MainActivity : AppCompatActivity() {
@@ -18,33 +17,36 @@ open class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        BtnRecipes.setOnClickListener{
-            val recipeIntent = Intent(this, RecipeActivity::class.java)
-            startActivity(recipeIntent)
-        }
+
 
 //        val languages = resources.getStringArray(R.array.MenuContents)
 
 
+                val recipeButton = findViewById<Button>(R.id.BtnRecipes)
+        recipeButton.setOnClickListener{
+            val recipeIntent = Intent(this, RecipeActivity::class.java)
+            startActivity(recipeIntent)
+        }
 
-        BtnFvtRecipes.setOnClickListener{
+        val fvtButton = findViewById<Button>(R.id.BtnFvtRecipes)
+        fvtButton.setOnClickListener{
             val favoriteIntent = Intent(this, FavoriteActivity::class.java)
             startActivity(favoriteIntent)
 
         }
 
-        BtnMyFridge.setOnClickListener{
+        val fridgeButton = findViewById<Button>(R.id.BtnMyFridge)
+        fridgeButton.setOnClickListener{
             val fridgeIntent = Intent(this, MyFridgeActivity::class.java)
             startActivity(fridgeIntent)
         }
 
-        BtnGrocery.setOnClickListener{
+        val groceryButton = findViewById<Button>(R.id.BtnGrocery)
+        groceryButton.setOnClickListener{
             val groceryIntent = Intent(this, GroceryActivity::class.java)
             startActivity(groceryIntent)
 
         }
-
-
 
 //        val recipeButtonAction = findViewById<Button>(R.id.ActionBtnRecipes)
 //        recipeButtonAction.setOnClickListener{
@@ -126,11 +128,6 @@ open class MainActivity : AppCompatActivity() {
             R.id.ActionBtnGrocery -> {
                 val groceryActionIntent = Intent(this, GroceryActivity::class.java)
                 startActivity(groceryActionIntent)
-                return true
-            }
-            R.id.ActionBtnSearch -> {
-                val searchActionIntent = Intent(this, SearchActivity::class.java)
-                startActivity(searchActionIntent)
                 return true
             }
 

@@ -26,8 +26,8 @@
         android:id="@+id/BtnMyFridge"
         android:layout_width="308dp"
         android:layout_height="62dp"
-        android:layout_marginStart="197dp"
-        android:layout_marginLeft="197dp"
+        android:layout_marginStart="191dp"
+        android:layout_marginLeft="191dp"
         android:layout_marginTop="147dp"
         android:layout_marginEnd="19dp"
         android:layout_marginRight="19dp"
@@ -89,10 +89,10 @@
         android:layout_width="332dp"
         android:layout_height="64dp"
         android:layout_marginStart="1dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="1dp"
         android:layout_marginTop="56dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginRight="78dp"
         android:layout_marginBottom="42dp"
         android:focusable="auto"
         android:hapticFeedbackEnabled="true"
@@ -102,7 +102,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
-    
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
