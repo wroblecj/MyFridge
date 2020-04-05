@@ -14,6 +14,10 @@ class MainViewModel : ViewModel() {
     }
 
     fun fetchRecipes() {
-        _recipes = recipeService.collectRecipes()
+        _recipes = recipeService.fetchRecipes()
     }
+
+    var recipes:MutableLiveData<ArrayList<Recipe>>
+        get() { return _recipes}
+        set(value) {_recipes = value}
 }

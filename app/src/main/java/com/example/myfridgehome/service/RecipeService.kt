@@ -9,7 +9,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class RecipeService {
-    fun collectRecipes(): MutableLiveData<ArrayList<Recipe>> {
+    fun fetchRecipes(): MutableLiveData<ArrayList<Recipe>> {
         var _recipes = MutableLiveData<ArrayList<Recipe>>()
         val service = RetrofitClientInstance.retrofitInstance?.create(IRecipeDAO::class.java)
         val call = service?.getAllRecipes()
