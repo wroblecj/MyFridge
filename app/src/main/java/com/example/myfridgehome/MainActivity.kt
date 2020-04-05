@@ -22,10 +22,10 @@ open class MainActivity : AppCompatActivity() {
 //        val languages = resources.getStringArray(R.array.MenuContents)
 
 
-                val recipeButton = findViewById<Button>(R.id.BtnRecipes)
-        recipeButton.setOnClickListener{
-            val recipeIntent = Intent(this, RecipeActivity::class.java)
-            startActivity(recipeIntent)
+            val recipeButton = findViewById<Button>(R.id.BtnRecipes)
+            recipeButton.setOnClickListener{
+                val recipeIntent = Intent(this, RecipeActivity::class.java)
+                startActivity(recipeIntent)
         }
 
         val fvtButton = findViewById<Button>(R.id.BtnFvtRecipes)

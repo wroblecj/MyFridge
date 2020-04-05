@@ -3,6 +3,7 @@ package com.example.myfridgehome.dto
 import android.app.Notification
 import android.app.Notification.MessagingStyle.Message
 import android.util.JsonWriter
+import com.google.gson.annotations.SerializedName
 import java.io.IOException
 import java.io.OutputStream
 import java.io.OutputStreamWriter
@@ -11,7 +12,7 @@ import java.io.StringWriter
 
 
 //this class collects the user input and converts it into a writable string format.
-abstract class SetStoredFoods(var name: String, var type: String, var quantity : Int, var measurement : String)
+abstract class SetStoredFoods(@SerializedName("name") var name: String, @SerializedName("type") var type: String, @SerializedName("quantity") var quantity : Int, @SerializedName("measurement") var measurement : String)
 {
     //collects input from the user and assigns to local values.
     val nm = name
@@ -76,7 +77,7 @@ abstract class SetStoredFoods(var name: String, var type: String, var quantity :
 
 
 
-    fun sendToJson(){
+    internal fun sendToJson(){
         var item : String = toString()
         var writer : JsonWriter
         val output = StringWriter()
