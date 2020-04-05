@@ -12,7 +12,7 @@ object RetrofitClientInstance {
             // has this object been created yet?
             if (retrofit == null) {
                 // create it!
-                retrofit = retrofit2.Retrofit.Builder()
+                retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()

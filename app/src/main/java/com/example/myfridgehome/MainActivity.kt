@@ -17,12 +17,10 @@ open class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-
-
 //        val languages = resources.getStringArray(R.array.MenuContents)
 
 
-                val recipeButton = findViewById<Button>(R.id.BtnRecipes)
+        val recipeButton = findViewById<Button>(R.id.BtnRecipes)
         recipeButton.setOnClickListener{
             val recipeIntent = Intent(this, RecipeActivity::class.java)
             startActivity(recipeIntent)
