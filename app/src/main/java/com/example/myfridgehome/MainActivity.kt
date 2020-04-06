@@ -16,13 +16,9 @@ open class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
-
 //        val languages = resources.getStringArray(R.array.MenuContents)
 
-
-                val recipeButton = findViewById<Button>(R.id.BtnRecipes)
+        val recipeButton = findViewById<Button>(R.id.BtnRecipes)
         recipeButton.setOnClickListener{
             val recipeIntent = Intent(this, RecipeActivity::class.java)
             startActivity(recipeIntent)
@@ -32,7 +28,6 @@ open class MainActivity : AppCompatActivity() {
         fvtButton.setOnClickListener{
             val favoriteIntent = Intent(this, FavoriteActivity::class.java)
             startActivity(favoriteIntent)
-
         }
 
         val fridgeButton = findViewById<Button>(R.id.BtnMyFridge)
@@ -45,7 +40,6 @@ open class MainActivity : AppCompatActivity() {
         groceryButton.setOnClickListener{
             val groceryIntent = Intent(this, GroceryActivity::class.java)
             startActivity(groceryIntent)
-
         }
 
 //        val recipeButtonAction = findViewById<Button>(R.id.ActionBtnRecipes)
@@ -132,7 +126,6 @@ open class MainActivity : AppCompatActivity() {
             }
 
         }
-
 
         return super.onOptionsItemSelected(item)
     }

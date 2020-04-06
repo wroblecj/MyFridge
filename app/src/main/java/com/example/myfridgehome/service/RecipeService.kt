@@ -15,7 +15,6 @@ class RecipeService {
         val call = service?.getAllRecipes()
         call?.enqueue(object : Callback<ArrayList<Recipe>> {
             override fun onFailure(call: Call<ArrayList<Recipe>>, t: Throwable) {
-
             }
 
             override fun onResponse(
@@ -24,10 +23,7 @@ class RecipeService {
             ) {
                 _recipes.value = response.body()
             }
-
         })
-
-
         return _recipes
     }
 }

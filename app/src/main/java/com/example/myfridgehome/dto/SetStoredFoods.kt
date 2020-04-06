@@ -11,13 +11,12 @@ import java.io.StringWriter
 
 
 //this class collects the user input and converts it into a writable string format.
-abstract class SetStoredFoods(var name: String, var type: String, var quantity : Int, var measurement : String)
-{
+abstract class SetStoredFoods(var name: String, var type: String, var quantity : Int, var measurement : String) {
     //collects input from the user and assigns to local values.
-    val nm = name
-    val ty = type
-    val qt = quantity
-    val mt = measurement
+    private val nm = name
+    private val ty = type
+    private val qt = quantity
+    private val mt = measurement
     val filename : String = "../assets/storedIngredients.json"
 
     @Throws(IOException::class)
