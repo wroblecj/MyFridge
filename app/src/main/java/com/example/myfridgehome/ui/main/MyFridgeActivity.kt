@@ -1,10 +1,11 @@
-package com.example.myfridgehome
+package com.example.myfridgehome.ui.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.example.myfridgehome.R
 
 class MyFridgeActivity : AppCompatActivity() {
 

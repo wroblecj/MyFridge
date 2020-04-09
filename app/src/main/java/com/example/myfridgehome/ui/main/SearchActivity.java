@@ -1,4 +1,4 @@
-package com.example.myfridgehome;
+package com.example.myfridgehome.ui.main;
 
 import android.app.Activity;
 

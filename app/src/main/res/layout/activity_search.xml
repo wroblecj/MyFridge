@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    tools:context=".FavoriteActivity">
+    tools:context=".ui.main.FavoriteActivity">
 
     <AutoCompleteTextView
         android:id="@+id/search_bar"

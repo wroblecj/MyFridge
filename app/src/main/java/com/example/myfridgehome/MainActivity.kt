@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.*
+import com.example.myfridgehome.ui.main.FavoriteActivity
+import com.example.myfridgehome.ui.main.GroceryActivity
+import com.example.myfridgehome.ui.main.MyFridgeActivity
+import com.example.myfridgehome.ui.main.RecipeActivity
 
 
 open class MainActivity : AppCompatActivity() {
