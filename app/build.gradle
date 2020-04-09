@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 ext {
     navigationVersion = '1.0.0-rc02'
@@ -52,4 +54,5 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.0.0-rc02'
     implementation 'com.squareup.retrofit2:retrofit:2.7.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
 }

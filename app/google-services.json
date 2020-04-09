@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "417181496736",
+    "firebase_url": "https://myfridgeapp-c471a.firebaseio.com",
+    "project_id": "myfridgeapp-c471a",
+    "storage_bucket": "myfridgeapp-c471a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417181496736:android:6207b64becc4ca732720c5",
+        "android_client_info": {
+          "package_name": "com.example.myfridgehome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417181496736-kp6p86chua0u5k8gkmu7qthru3qm23qt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUPhdA5WMDE4ebQSVUqjiCFi5pJcA8FRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417181496736-kp6p86chua0u5k8gkmu7qthru3qm23qt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
