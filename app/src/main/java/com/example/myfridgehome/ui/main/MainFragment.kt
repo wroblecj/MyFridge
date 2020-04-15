@@ -32,7 +32,7 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = of(this).get(MainViewModel::class.java)
-        viewModel._recipes.observe(viewLifecycleOwner, Observer { _recipes ->
+        viewModel.recipes.observe(viewLifecycleOwner, Observer { _recipes ->
             search_bar.setAdapter(
                 ArrayAdapter(
                     context!!,

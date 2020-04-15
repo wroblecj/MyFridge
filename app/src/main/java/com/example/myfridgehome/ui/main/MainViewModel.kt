@@ -6,14 +6,18 @@ import com.example.myfridgehome.dto.Recipe
 import com.example.myfridgehome.service.RecipeService
 
 class MainViewModel : ViewModel() {
-    var _recipes: MutableLiveData<ArrayList<Recipe>> = MutableLiveData<ArrayList<Recipe>>()
+    private var _recipes: MutableLiveData<ArrayList<Recipe>> = MutableLiveData<ArrayList<Recipe>>()
     var recipeService: RecipeService = RecipeService()
 
     init {
-        fetchRecipes()
+        fetchRecipes("e")
     }
 
-    fun fetchRecipes() {
+    fun fetchRecipes(ingredienName: String) {
         _recipes = recipeService.collectRecipes()
     }
+
+    internal var recipes:MutableLiveData<ArrayList<Recipe>>
+        get() {return _recipes}
+        set(value) {_recipes = value}
 }
