@@ -1,7 +1,9 @@
 package com.example.myfridgehome.dto
 
-data class Recipe(var title : String = "", var mainIngredient: String = "") {
+import com.google.gson.annotations.SerializedName
+
+data class Recipe(var idMeal : String = "", @SerializedName("strMeal") var mainIngredient: String = "") {
     override fun toString(): String {
-        return title
+        return idMeal
     }
 }

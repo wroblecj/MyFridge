@@ -15,7 +15,8 @@ class RecipeService {
         val call = service?.getAllRecipes()
         call?.enqueue(object : Callback<ArrayList<Recipe>> {
             override fun onFailure(call: Call<ArrayList<Recipe>>, t: Throwable) {
-
+                val j = 1 + 1
+                val i = 1 + 1
             }
 
             override fun onResponse(

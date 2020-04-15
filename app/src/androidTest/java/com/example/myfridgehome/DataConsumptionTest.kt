@@ -2,7 +2,10 @@ package com.example.myfridgehome
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.myfridgehome.dto.Recipe
+import com.example.myfridgehome.service.RecipeService
 import com.example.myfridgehome.ui.main.MainViewModel
+import io.mockk.mockk
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,6 +23,13 @@ class DataConsumptionTest {
     @get:Rule
     lateinit var mvm:MainViewModel
 
+    var recipeService = mockk<RecipeService>()
+
+    @Test
+    fun confirmSearchChicken_outputsChickenRecipe () {
+        var recipe: Recipe = Recipe("Cercis", "chicken")
+        assertEquals("chicken", recipe.toString());
+    }
 
     @Test
     fun dataFeedTest() {
@@ -44,7 +54,7 @@ class DataConsumptionTest {
                     chickenFound = true
                 }
             }
+            assertTrue(chickenFound)
         }
-        assertTrue(chickenFound)
     }
 }
