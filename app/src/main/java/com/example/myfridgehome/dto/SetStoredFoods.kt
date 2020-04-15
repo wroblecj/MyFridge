@@ -76,7 +76,7 @@ abstract class SetStoredFoods(var name: String, var type: String, var quantity :
 
 
 
-    fun sendToJson(){
+    internal fun sendToJson(){
         var item : String = toString()
         var writer : JsonWriter
         val output = StringWriter()
