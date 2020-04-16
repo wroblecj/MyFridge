@@ -1,17 +1,15 @@
 package com.example.myfridgehome
 
-import androidx.test.platform.app.InstrumentationRegistry
+import android.os.Looper
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.myfridgehome.dto.Recipe
-import com.example.myfridgehome.service.RecipeService
 import com.example.myfridgehome.ui.main.MainViewModel
-import io.mockk.mockk
-
-import org.junit.Test
-import org.junit.runner.RunWith
-
 import org.junit.Assert.*
 import org.junit.Rule
+import org.junit.Test
+import org.junit.rules.TestRule
+import org.junit.runner.RunWith
+import java.util.logging.Handler
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -21,16 +19,13 @@ import org.junit.Rule
 @RunWith(AndroidJUnit4::class)
 class DataConsumptionTest {
     @get:Rule
+    var rule: TestRule =  InstantTaskExecutorRule()
     lateinit var mvm:MainViewModel
 
-    var recipeService = mockk<RecipeService>()
-
     @Test
-    fun confirmSearchChicken_outputsChickenRecipe () {
-        var recipe: Recipe = Recipe("Cercis", "chicken")
-        assertEquals("chicken", recipe.toString());
+    fun addition_isCorrect() {
+        assertEquals(4, 2 + 2)
     }
-
     @Test
     fun dataFeedTest() {
         givenAFeedOfFoodItemsAreAvailable()
@@ -46,6 +41,7 @@ class DataConsumptionTest {
     }
     private fun thenResultContainsChicken() {
         var chickenFound = false
+
         mvm.recipes.observeForever{
             assertNotNull(it)
             assertTrue(it.size > 0)

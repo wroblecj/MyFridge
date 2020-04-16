@@ -9,12 +9,13 @@ class MainViewModel : ViewModel() {
     private var _recipes: MutableLiveData<ArrayList<Recipe>> = MutableLiveData<ArrayList<Recipe>>()
     var recipeService: RecipeService = RecipeService()
 
+
     init {
-        fetchRecipes("e")
+        fetchRecipes("chicken")
     }
 
     fun fetchRecipes(ingredienName: String) {
-        _recipes = recipeService.collectRecipes()
+        _recipes = recipeService.collectRecipes(ingredienName)
     }
 
     internal var recipes:MutableLiveData<ArrayList<Recipe>>

@@ -12,6 +12,6 @@ fun getAllRecipes(): Call<ArrayList<Recipe>>
 
 //appends a search query to the URL to allow for filtering autocomplete
 @GET(value = "filter.php")
-fun getRecipes(@Query("i") ingName: String): Call<ArrayList<Recipe>>
+fun getRecipes(@Query("i") ingredientName: String): Call<ArrayList<Recipe>>
 
 }
