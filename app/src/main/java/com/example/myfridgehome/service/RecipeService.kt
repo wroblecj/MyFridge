@@ -12,7 +12,7 @@ class RecipeService {
     fun collectRecipes(ingredientName: String): MutableLiveData<ArrayList<Recipe>> {
         var _recipes = MutableLiveData<ArrayList<Recipe>>()
         val service = RetrofitClientInstance.retrofitInstance?.create(IRecipeDAO::class.java)
-        val call = service?.getRecipes(ingredientName)
+        val call = service?.getAllRecipes()
         call?.enqueue(object : Callback<ArrayList<Recipe>> {
             override fun onFailure(call: Call<ArrayList<Recipe>>, t: Throwable) {
                 val j = 1 + 1

@@ -1,0 +1,52 @@
+{
+	"foodItem": [
+		{
+			"name": "milk",
+			"category": "dairy",
+			"quantity": "1",
+			"measurement": "gallon"
+		},
+		{
+			"name": "eggs",
+			"category": "dairy",
+			"quantity": "6",
+			"measurement": "whole"
+		},
+		{
+			"name": "cheddar cheese",
+			"category": "dairy",
+			"quantity": "12",
+			"measurement": "oz"
+		},
+		{
+			"name": "ham",
+			"category": "meat",
+			"quantity": "1",
+			"measurement": "lb"
+		},
+		{
+			"name": "butter",
+			"category": "dairy",
+			"quantity": "2",
+			"measurement": "sticks"
+		},
+		{
+			"name": "ketchup",
+			"category": "condiment",
+			"quantity": "2",
+			"measurement": "cups"
+		},
+		{
+			"name": "apple juice",
+			"category": "juice",
+			"quantity": "8",
+			"measurement": "cups"
+		},
+		{
+			"name": "hamburger",
+			"category": "meat",
+			"quantity": "2",
+			"measurement": "lbs"
+		}
+	]
+}

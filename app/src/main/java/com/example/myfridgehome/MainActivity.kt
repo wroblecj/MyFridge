@@ -6,18 +6,17 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
-import com.example.myfridgehome.ui.main.FavoriteActivity
-import com.example.myfridgehome.ui.main.GroceryActivity
-import com.example.myfridgehome.ui.main.MyFridgeActivity
-import com.example.myfridgehome.ui.main.RecipeActivity
+import com.example.myfridgehome.ui.main.*
 
 
 open class MainActivity : AppCompatActivity() {
 
+    private lateinit var mainFragment: MainFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        mainFragment = MainFragment.newInstance()
 
 
 

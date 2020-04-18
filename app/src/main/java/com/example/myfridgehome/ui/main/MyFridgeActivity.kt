@@ -3,16 +3,103 @@ package com.example.myfridgehome.ui.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.RequestQueue
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.Volley
 import com.example.myfridgehome.R
+import kotlinx.android.synthetic.main.activity_my_fridge.*
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.example.myfridgehome.dto.Fridge
+import com.google.gson.Gson
+import com.google.gson.JsonObject
+import com.google.gson.reflect.TypeToken
+import org.json.JSONArray
+import org.json.JSONObject
+import org.w3c.dom.Text
 
 class MyFridgeActivity : AppCompatActivity() {
+    private lateinit var mTextViewResult: TextView
+    private lateinit var mQueue : RequestQueue
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_fridge)
+
+        //start newest data parse test using recyclerview
+
+
+
+        //end newest data parse test using recyclerview
+
+        //start data parse test using preferences manager
+        json_button_parse.setOnClickListener{
+            val foods = getFoodList()
+            text_view_result.text = foods.joinToString()
+        }
+        json_button_write.setOnClickListener{
+            val foodsToSave = listOf(Fridge("celery sticks", "vegetable", "3", "whole"))
+            writeFoodsToList(foodsToSave)
+            Toast.makeText(this,"Saved ${foodsToSave.size} foods to Fridge.", Toast.LENGTH_SHORT).show()
+        }
+        //end data parse test using preferences manager
+
+        //start data parse attempt using http - currently failing
+        mTextViewResult = findViewById(R.id.text_view_result)
+        button_parse.setOnClickListener{
+            parseAction()
+        }
+        mQueue = Volley.newRequestQueue(this)
+        //end data parse attempt using http - currently failing
     }
+    private fun writeFoodsToList(foods: List<Fridge>){
+        val foodEditor = PreferenceManager.getDefaultSharedPreferences(this).edit()
+        val jsonString = Gson().toJson(foods)
+        foodEditor.putString("foods", jsonString).apply()
+    }
+    private fun getFoodList(): List<Fridge>{
+        val stored_foods = PreferenceManager.getDefaultSharedPreferences(this)
+        val jsonString = stored_foods.getString("foods", null)
+
+        return if (jsonString != null)
+            Gson().fromJson(jsonString, object: TypeToken<List<Fridge>>(){}.type)
+        else
+            listOf()
+    }
+
+    fun parseAction() {
+        var url : String ="https://vibrantartgroup.com/fridge.json"
+
+        val request = JsonObjectRequest(Request.Method.GET, url, null,
+            Response.Listener {
+                fun onResponse(response: JSONObject) {
+                    val jsonArray: JSONArray = response.getJSONArray("foodItem")
+                    for(i in 0 until jsonArray.length()){
+                        val food_item: JSONObject = jsonArray.getJSONObject(i)
+                        val cat : String = food_item.getString("category")
+                        val quant : String = food_item.getString("quantity")
+                        val measure : String = food_item.getString("measurement")
+
+                        mTextViewResult.append(cat + ", " + quant + ", " + measure + "\n\n")
+                    }
+                }
+            },
+            Response.ErrorListener { error ->
+                error.printStackTrace()
+            }
+        )
+        mQueue.add(request)
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
