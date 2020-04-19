@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyFridge</string>
+    <string name="app_name">My Fridge App</string>
     <string name="action_bar_button">MyFridge Locations</string>
     <string name="options">options</string>
     <string name="settings">settings</string>
@@ -15,6 +15,10 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="recipe_count_msg">Recipe Count: %1$s</string>
     <string name="share">share</string>
+    <string name="foodType">Food Name</string>
+    <string name="numQuantity">Number of Items</string>
+    <string name="foodCategory">Food Category (dairy, meat, etc. )</string>
+    <string name="unitOfMeasure">Unit of Measurement (Cups, oz, etc. )</string>
 
     <string-array name="MenuContents">
         <item>Beef Stroganoff</item>

@@ -26,6 +26,25 @@ class DataConsumptionTest {
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
     }
+/*
+    @Test
+    fun dataPreferencesTest(){
+        givenFoodItemsAreNotAdded()
+        whenItemsAreAdded()
+        thenResultContainsFoodItems()
+    }
+    private fun givenFoodItemsAreNotAdded() {
+        mvm.recipeService
+    }
+    private fun whenItemsAreAdded() {
+        TODO("Not yet implemented")
+    }
+    private fun thenResultContainsFoodItems() {
+        TODO("Not yet implemented")
+    }
+*/
+
+
     @Test
     fun dataFeedTest() {
         givenAFeedOfFoodItemsAreAvailable()

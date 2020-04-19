@@ -21,10 +21,6 @@
         android:title="Grocery List"
         app:showAsAction="never" />
 
-    <item android:id="@+id/ActionBtnSearch"
-        android:title="Search"
-        app:showAsAction="never" />
-
 
 
 
