@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.android.volley.RequestQueue
 import com.example.myfridgehome.R
 import kotlinx.android.synthetic.main.activity_my_fridge.*
@@ -24,6 +25,7 @@ class MyFridgeActivity : AppCompatActivity() {
     private lateinit var mTextViewResult: TextView
     private lateinit var mQueue : RequestQueue
     private lateinit var addFoodFragment: AddFoodItemEventFragment
+    private lateinit var activeFragment: Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +54,7 @@ class MyFridgeActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, addFoodFragment)
                 .commitNow()
+            activeFragment = addFoodFragment
         }
         //start data parse attempt using http - currently failing
 /*        mTextViewResult = findViewById(R.id.text_view_result)
