@@ -5,6 +5,10 @@
     tools:context="com.example.myfridgehome.MainActivity">
 
 
+    <item android:id="@+id/ActionBtnHome"
+        android:title="Home"
+        app:showAsAction="never" />
+
     <item android:id="@+id/ActionBtnMyFridge"
         android:title="My Fridge"
         app:showAsAction="never" />

@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.example.myfridgehome.R
 import com.example.myfridgehome.dto.AddFoodEvent
 import kotlinx.android.synthetic.main.add_food_item_fragment.*

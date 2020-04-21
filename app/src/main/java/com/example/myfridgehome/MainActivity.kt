@@ -1,71 +1,34 @@
 package com.example.myfridgehome
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
-import android.widget.*
+import android.widget.Toast
 import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import com.example.myfridgehome.ui.main.*
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.main_fragment.*
 
-
-open class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
+    private lateinit var detector: GestureDetectorCompat
 
     private lateinit var mainFragment: MainFragment
-    private lateinit var detector: GestureDetectorCompat
-    private lateinit var newFragment: AddFoodItemEventFragment
     private lateinit var activeFragment: Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        mainFragment = MainFragment.newInstance()
-        newFragment = AddFoodItemEventFragment.newInstance()
-
-        detector = GestureDetectorCompat(this, MyFridgeGestureListener())
-
-
-
-
-//        val languages = resources.getStringArray(R.array.MenuContents)
-
-        BtnRecipes.setOnClickListener{
-            val recipeIntent = Intent(this, RecipeActivity::class.java)
-            startActivity(recipeIntent)
+        setContentView(R.layout.main_activity)
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container, MainFragment.newInstance())
+                .commitNow()
         }
-
-        BtnFvtRecipes.setOnClickListener{
-            val favoriteIntent = Intent(this, FavoriteActivity::class.java)
-            startActivity(favoriteIntent)
-
-        }
-
-        BtnMyFridge.setOnClickListener{
-            val fridgeIntent = Intent(this, MyFridgeActivity::class.java)
-            startActivity(fridgeIntent)
-        }
-
-        BtnGrocery.setOnClickListener{
-            val groceryIntent = Intent(this, GroceryActivity::class.java)
-            startActivity(groceryIntent)
-
-        }
-
-}
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        return if (detector.onTouchEvent(event)) {
-            true
-        } else {
-            super.onTouchEvent(event)
-        }
+        detector = GestureDetectorCompat(this, FridgeGestureListener())
     }
-
-    inner class MyFridgeGestureListener : GestureDetector.SimpleOnGestureListener() {
+    inner class FridgeGestureListener : GestureDetector.SimpleOnGestureListener(){
 
         private val  SWIPE_THRESHOLD = 100
         private val SWIPE_VELOCITY_THRESHOLD = 100
@@ -112,63 +75,70 @@ open class MainActivity : AppCompatActivity() {
     }
 
     private fun onSwipeBottom() {
-        Toast.makeText(this, "Swiped Bottom", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Bottom Swipe", Toast.LENGTH_LONG).show()
     }
 
     private fun onSwipeTop() {
+        Toast.makeText(this, "Top Swipe", Toast.LENGTH_LONG).show()
+    }
+
+    internal fun onLeftSwipe() {
+        Toast.makeText(this, "Left Swipe", Toast.LENGTH_LONG).show()
+    }
+    internal fun onSwipeRight() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, newFragment)
+            .replace(R.id.container, AddFoodItemEventFragment.newInstance())
             .commitNow()
-        activeFragment = newFragment
     }
-
-    private fun onLeftSwipe() {
-        Toast.makeText(this, "Swiped Left", Toast.LENGTH_LONG).show()
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        return if (detector.onTouchEvent(event)) {
+            true
+        } else {
+            super.onTouchEvent(event)
+        }
     }
-
-    private fun onSwipeRight() {
-        Toast.makeText(this, "Swiped Right", Toast.LENGTH_LONG).show()
-    }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         val inflater = menuInflater
         inflater.inflate(R.menu.my_fridge_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
+            R.id.ActionBtnHome -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, MainFragment.newInstance())
+                    .commitNow()
+                return true
+            }
             R.id.ActionBtnRecipes -> {
-                val recipeActionIntent = Intent(this, RecipeActivity::class.java)
-                startActivity(recipeActionIntent)
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, RecipesFragment.newInstance())
+                    .commitNow()
                 return true
             }
             R.id.ActionBtnFavorites -> {
-                val favoritesActionIntent = Intent(this, FavoriteActivity::class.java)
-                startActivity(favoritesActionIntent)
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, FavoritesFragment.newInstance())
+                    .commitNow()
                 return true
             }
             R.id.ActionBtnMyFridge -> {
-                val fridgeActionIntent = Intent(this, MyFridgeActivity::class.java)
-                startActivity(fridgeActionIntent)
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, MyFridgeFragment.newInstance())
+                    .commitNow()
                 return true
             }
             R.id.ActionBtnGrocery -> {
-                val groceryActionIntent = Intent(this, GroceryActivity::class.java)
-                startActivity(groceryActionIntent)
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, GroceryListFragment.newInstance())
+                    .commitNow()
                 return true
             }
 
         }
-
-
         return super.onOptionsItemSelected(item)
     }
 
-
-
-
-
-    }
+}

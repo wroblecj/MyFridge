@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">My Fridge App</string>
+    <string name="country">Enter your Country</string>
     <string name="action_bar_button">MyFridge Locations</string>
     <string name="options">options</string>
     <string name="settings">settings</string>
@@ -19,6 +20,7 @@
     <string name="numQuantity">Number of Items</string>
     <string name="foodCategory">Food Category (dairy, meat, etc. )</string>
     <string name="unitOfMeasure">Unit of Measurement (Cups, oz, etc. )</string>
+    <string name="SearchIngredients">Search for ingredients</string>
 
     <string-array name="MenuContents">
         <item>Beef Stroganoff</item>

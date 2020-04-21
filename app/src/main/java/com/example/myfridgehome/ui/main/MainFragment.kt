@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION")
-
 package com.example.myfridgehome.ui.main
 
 import android.os.Bundle
@@ -9,11 +7,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders.of
+import androidx.lifecycle.ViewModelProviders
 import com.example.myfridgehome.R
-import kotlinx.android.synthetic.main.activity_search.*
+import kotlinx.android.synthetic.main.main_fragment.*
 
-@Suppress("DEPRECATION")
 class MainFragment : Fragment() {
 
     companion object {
@@ -22,25 +19,54 @@ class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
 
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View {
-//        return inflater.inflate(R.layout.main_fragment, container, false)
-//    }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return inflater.inflate(R.layout.main_fragment, container, false)
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = of(this).get(MainViewModel::class.java)
-        viewModel.recipes.observe(viewLifecycleOwner, Observer { _recipes ->
-            search_bar.setAdapter(
+        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel._foods.observe(viewLifecycleOwner, Observer { _food_items ->
+            actFoodSearch.setAdapter(
                 ArrayAdapter(
                     context!!,
                     R.layout.support_simple_spinner_dropdown_item,
-                    _recipes
+                    _food_items
                 )
             )
         })
+        BtnMyFridge.setOnClickListener {
+            startFridgeFragment()
+        }
+        BtnRecipes.setOnClickListener{
+            startRecipeFragment()
+        }
+        BtnFvtRecipes.setOnClickListener {
+            startFavoriteFragment()
+        }
+        BtnGrocery.setOnClickListener{
+            startGroceryFragment()
+        }
     }
+
+    private fun startFridgeFragment() {
+        TODO("Not yet implemented")
+    }
+
+    private fun startRecipeFragment() {
+        TODO("Not yet implemented")
+    }
+
+    private fun startFavoriteFragment() {
+        TODO("Not yet implemented")
+    }
+
+    private fun startGroceryFragment() {
+        TODO("Not yet implemented")
+    }
+
 
 }

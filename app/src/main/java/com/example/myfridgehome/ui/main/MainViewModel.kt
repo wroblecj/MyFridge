@@ -2,23 +2,20 @@ package com.example.myfridgehome.ui.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.myfridgehome.dto.Recipe
-import com.example.myfridgehome.service.RecipeService
+import com.example.myfridgehome.dto.Food
+import com.example.myfridgehome.service.FoodService
 
 class MainViewModel : ViewModel() {
-    private var _recipes: MutableLiveData<ArrayList<Recipe>> = MutableLiveData<ArrayList<Recipe>>()
-    var recipeService: RecipeService = RecipeService()
+    var _foods: MutableLiveData<ArrayList<Food>> = MutableLiveData<ArrayList<Food>>()
+    var foodService: FoodService = FoodService()
 
-
-    init {
-        fetchRecipes("chicken")
+    init{
+        fetchFoodItems()
     }
 
-    fun fetchRecipes(ingredienName: String) {
-        _recipes = recipeService.collectRecipes(ingredienName)
+    fun fetchFoodItems() {
+        _foods = foodService.fetchFoods()
     }
 
-    internal var recipes:MutableLiveData<ArrayList<Recipe>>
-        get() {return _recipes}
-        set(value) {_recipes = value}
+
 }
