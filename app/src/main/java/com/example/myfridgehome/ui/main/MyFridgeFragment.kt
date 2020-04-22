@@ -34,6 +34,10 @@ class MyFridgeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
+
+
+
+
         //start data parse test using preferences manager
         json_button_parse.setOnClickListener{
             val foods = getFoodList()
@@ -46,6 +50,7 @@ class MyFridgeFragment : Fragment() {
         }
 
         //end data parse test using preferences manager
+
 
     }
 
