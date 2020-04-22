@@ -21,6 +21,12 @@
     <string name="foodCategory">Food Category (dairy, meat, etc. )</string>
     <string name="unitOfMeasure">Unit of Measurement (Cups, oz, etc. )</string>
     <string name="SearchIngredients">Search for ingredients</string>
+    <string name="write_json">Write JSON</string>
+    <string name="parse_json">Parse JSON</string>
+    <string name="add_a_new_food_item">Add A New Food Item</string>
+    <string name="edit_items_in_fridge">Edit Items in Fridge</string>
+    <string name="favorite_item_icon">Favorite Item Icon</string>
+    <string name="calendars">Calendars</string>
 
     <string-array name="MenuContents">
         <item>Beef Stroganoff</item>

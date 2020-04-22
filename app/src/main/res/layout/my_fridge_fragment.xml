@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Write JSON"
+        android:text="@string/write_json"
         app:layout_constraintEnd_toStartOf="@+id/json_button_parse"
         app:layout_constraintHorizontal_bias="0.62"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="84dp"
-        android:text="Parse JSON"
+        android:text="@string/parse_json"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_result" />
 
@@ -80,22 +80,19 @@
         android:id="@+id/btn_startSaveFoodEventFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="Add A New Food Item"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/add_a_new_food_item"
+        app:layout_constraintStart_toEndOf="@+id/btn_editFoodItems"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView_Fridge" />
 
     <Button
         android:id="@+id/btn_editFoodItems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="Edit Items in Fridge"
-        app:layout_constraintEnd_toStartOf="@+id/btn_startSaveFoodEventFragment"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:text="@string/edit_items_in_fridge"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView_Fridge" />
 
