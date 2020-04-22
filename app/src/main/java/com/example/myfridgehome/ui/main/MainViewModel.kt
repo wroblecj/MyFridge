@@ -87,6 +87,24 @@ class MainViewModel : ViewModel() {
                 Log.d("Firebase", "document failed")
             }
     }
+
+    fun deleteFoodItem(event: AddFoodEvent) {
+        val document=
+            if (!food.foodID.isEmpty()) {
+                firestore.collection("foodItems").document(food.foodID) //update an existing entry
+            }else{
+                firestore.collection("foodItems").document() //create a new entry if the id does not exist already
+            }
+        food.foodID = document.id
+        val delete =document.delete()
+        delete.addOnSuccessListener {
+            Log.d("Firebase", "document saved")
+        }
+            .addOnFailureListener{
+                Log.d("Firebase", "document failed")
+            }
+    }
+
     internal var food: Food
         get() {return _food}
         set(value) {_food = value}
