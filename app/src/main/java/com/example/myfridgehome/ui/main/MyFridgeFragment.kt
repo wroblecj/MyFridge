@@ -40,7 +40,7 @@ class MyFridgeFragment : Fragment() {
             text_view_result.text = foods.joinToString()
         }
         json_button_write.setOnClickListener{
-            val foodsToSave = listOf(Food("celery sticks", "vegetable", 3, "whole"))
+            val foodsToSave = listOf(Food("celery sticks", "vegetable", "3", "whole"))
             writeFoodsToList(foodsToSave)
             Toast.makeText(this.context, "Saved ${foodsToSave.size} foods to Fridge.", Toast.LENGTH_SHORT).show()
         }

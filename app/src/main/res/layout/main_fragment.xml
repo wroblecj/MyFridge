@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/mainFragmentSpinner"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="32dp"

@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myfridgehome.R
 import com.example.myfridgehome.dto.AddFoodEvent
+import kotlinx.android.synthetic.main.add_food_item_fragment.*
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class MainFragment : Fragment() {
