@@ -29,7 +29,7 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        viewModel._foods.observe(viewLifecycleOwner, Observer { _food_items ->
+        viewModel.foods.observe(viewLifecycleOwner, Observer { _food_items ->
             actFoodSearch.setAdapter(
                 ArrayAdapter(
                     context!!,

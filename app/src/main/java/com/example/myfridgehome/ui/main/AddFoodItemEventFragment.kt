@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.myfridgehome.R
 import com.example.myfridgehome.dto.AddFoodEvent
+import com.example.myfridgehome.dto.Food
+import com.example.myfridgehome.dto.Fridge
 import kotlinx.android.synthetic.main.add_food_item_fragment.*
 
 class AddFoodItemEventFragment : Fragment() {
@@ -43,7 +45,9 @@ class AddFoodItemEventFragment : Fragment() {
             type = actFoodCategory.text.toString()
             number = edtNumber.text.toString()
             units = actUnitOfMeasurement.text.toString()
+
         }
+        viewModel.save(event)
     }
 
 }
