@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myfridgehome.MainActivity
 import com.example.myfridgehome.R
 import com.example.myfridgehome.dto.AddFoodEvent
 import kotlinx.android.synthetic.main.add_food_item_fragment.*
@@ -44,34 +45,20 @@ class MainFragment : Fragment() {
             )
         })
         BtnMyFridge.setOnClickListener {
-            startFridgeFragment()
+            (activity as MainActivity).startFridgeFragment()
         }
         BtnRecipes.setOnClickListener{
-            startRecipeFragment()
+            (activity as MainActivity).startRecipeFragment()
         }
         BtnFvtRecipes.setOnClickListener {
-            startFavoriteFragment()
+            (activity as MainActivity).startFavoriteFragment()
         }
         BtnGrocery.setOnClickListener{
-            startGroceryFragment()
+            (activity as MainActivity).startGroceryFragment()
         }
     }
 
-    private fun startFridgeFragment() {
-        TODO("Not yet implemented")
-    }
 
-    private fun startRecipeFragment() {
-        TODO("Not yet implemented")
-    }
-
-    private fun startFavoriteFragment() {
-        TODO("Not yet implemented")
-    }
-
-    private fun startGroceryFragment() {
-        TODO("Not yet implemented")
-    }
 
 
 

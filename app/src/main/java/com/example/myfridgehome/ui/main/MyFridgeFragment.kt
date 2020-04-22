@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.myfridgehome.MainActivity
 
 import com.example.myfridgehome.R
 import com.example.myfridgehome.dto.Food
@@ -51,7 +52,12 @@ class MyFridgeFragment : Fragment() {
 
         //end data parse test using preferences manager
 
-
+        btn_editFoodItems.setOnClickListener {
+            (activity as MainActivity).startEditFoodsFragment()
+        }
+        btn_startSaveFoodEventFragment.setOnClickListener {
+            (activity as MainActivity).startAddFoodsFragment()
+        }
     }
 
     private fun writeFoodsToList(foods: List<Food>){

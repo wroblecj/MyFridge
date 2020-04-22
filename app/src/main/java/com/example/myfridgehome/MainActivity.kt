@@ -73,7 +73,40 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+    internal fun startFridgeFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, MyFridgeFragment.newInstance())
+            .commitNow()
+    }
 
+    internal fun startRecipeFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, RecipesFragment.newInstance())
+            .commitNow()
+    }
+
+    internal fun startFavoriteFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, FavoritesFragment.newInstance())
+            .commitNow()
+    }
+
+    internal fun startGroceryFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, GroceryListFragment.newInstance())
+            .commitNow()
+    }
+    internal fun startEditFoodsFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, EditFoodItemEventFragment.newInstance())
+            .commitNow()
+    }
+
+    internal fun startAddFoodsFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, AddFoodItemEventFragment.newInstance())
+            .commitNow()
+    }
     private fun onSwipeBottom() {
         Toast.makeText(this, "Bottom Swipe", Toast.LENGTH_LONG).show()
     }
@@ -86,9 +119,7 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Left Swipe", Toast.LENGTH_LONG).show()
     }
     internal fun onSwipeRight() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, AddFoodItemEventFragment.newInstance())
-            .commitNow()
+        Toast.makeText(this, "Right Swipe", Toast.LENGTH_LONG).show()
     }
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         return if (detector.onTouchEvent(event)) {
