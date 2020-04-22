@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 
 import com.example.myfridgehome.R
-import com.example.myfridgehome.dto.Fridge
+import com.example.myfridgehome.dto.Food
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.my_fridge_fragment.*
@@ -40,7 +40,7 @@ class MyFridgeFragment : Fragment() {
             text_view_result.text = foods.joinToString()
         }
         json_button_write.setOnClickListener{
-            val foodsToSave = listOf(Fridge("celery sticks", "vegetable", 3, "whole"))
+            val foodsToSave = listOf(Food("celery sticks", "vegetable", 3, "whole"))
             writeFoodsToList(foodsToSave)
             Toast.makeText(this.context, "Saved ${foodsToSave.size} foods to Fridge.", Toast.LENGTH_SHORT).show()
         }
@@ -49,17 +49,17 @@ class MyFridgeFragment : Fragment() {
 
     }
 
-    private fun writeFoodsToList(foods: List<Fridge>){
+    private fun writeFoodsToList(foods: List<Food>){
         val foodEditor = PreferenceManager.getDefaultSharedPreferences(this.context).edit()
         val jsonString = Gson().toJson(foods)
         foodEditor.putString("foods", jsonString).apply()
     }
-    private fun getFoodList(): List<Fridge>{
+    private fun getFoodList(): List<Food>{
         val stored_foods = PreferenceManager.getDefaultSharedPreferences(this.context)
         val jsonString = stored_foods.getString("foods", null)
 
         return if (jsonString != null)
-            Gson().fromJson(jsonString, object: TypeToken<List<Fridge>>(){}.type)
+            Gson().fromJson(jsonString, object: TypeToken<List<Food>>(){}.type)
         else
             listOf()
     }

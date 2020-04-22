@@ -5,14 +5,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.myfridgehome.dto.AddFoodEvent
 import com.example.myfridgehome.dto.Food
+import com.example.myfridgehome.dto.Recipes
 import com.example.myfridgehome.service.FoodService
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 
 class MainViewModel : ViewModel() {
-    var foods: MutableLiveData<ArrayList<Food>> = MutableLiveData<ArrayList<Food>>()
+    var recipes: MutableLiveData<ArrayList<Recipes>> = MutableLiveData<ArrayList<Recipes>>()
     private var _foodService: FoodService = FoodService()
-    private lateinit var firestore : FirebaseFirestore
+    private lateinit var firestore: FirebaseFirestore
+    private var _food = Food()
 
 
     init{
@@ -22,10 +24,11 @@ class MainViewModel : ViewModel() {
     }
 
     fun fetchFoodItems() {
-        foods = _foodService.fetchFoods()
+        recipes = _foodService.fetchFoods()
     }
 
-    fun save(food: AddFoodEvent) {
+
+    fun saveFoodItem(food: AddFoodEvent) {
         val document= firestore.collection("foodItems").document()
         food.foodID = document.id
         val set =document.set(food)
@@ -36,5 +39,8 @@ class MainViewModel : ViewModel() {
                 Log.d("Firebase", "document failed")
             }
     }
+    internal var food: Food
+        get() {return _food}
+        set(value) {_food = value}
 
 }

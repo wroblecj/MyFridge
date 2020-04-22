@@ -5,10 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
 import com.example.myfridgehome.R
+import com.example.myfridgehome.dto.AddFoodEvent
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class MainFragment : Fragment() {
@@ -29,7 +33,7 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        viewModel.foods.observe(viewLifecycleOwner, Observer { _food_items ->
+        viewModel.recipes.observe(viewLifecycleOwner, Observer { _food_items ->
             actFoodSearch.setAdapter(
                 ArrayAdapter(
                     context!!,
@@ -67,6 +71,7 @@ class MainFragment : Fragment() {
     private fun startGroceryFragment() {
         TODO("Not yet implemented")
     }
+
 
 
 }
