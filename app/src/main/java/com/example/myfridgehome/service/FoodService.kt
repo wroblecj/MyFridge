@@ -17,7 +17,7 @@ class FoodService {
         Log.d(TAG, "Fetch Started")
         var _countries = MutableLiveData<ArrayList<Recipes>>()
         val service = RetrofitClientInstance.retrofitInstance?.create(IFoodItemDAO::class.java)
-        val call = service?.getAllCountries()
+        val call = service?.getAllRecipes()
         Log.d(TAG, "Before Call")
         call?.enqueue(object : Callback<ArrayList<Recipes>> {
             override fun onFailure(call: Call<ArrayList<Recipes>>, t: Throwable) {
