@@ -27,7 +27,8 @@ class AddFoodItemEventFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
     private var food = Food()
     private var _foodId = ""
-    private var _foodItems = ArrayList<AddFoodEvent>()
+    private var _foodEventItems = ArrayList<AddFoodEvent>()
+    private var _foodItems = ArrayList<Food>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,11 +64,11 @@ class AddFoodItemEventFragment : Fragment() {
         rcyFoodEvents.hasFixedSize()
         rcyFoodEvents.layoutManager = LinearLayoutManager(context)
         rcyFoodEvents.itemAnimator = DefaultItemAnimator()
-        rcyFoodEvents.adapter = EventsAdapter(_foodItems, R.layout.row_layout)
+        rcyFoodEvents.adapter = EventsAdapter(_foodEventItems, R.layout.row_layout)
 
         viewModel.foodItems.observe(this, Observer { events ->
-            _foodItems.removeAll(_foodItems)//remove old events
-            _foodItems.addAll(_foodItems) //add new events
+            _foodEventItems.removeAll(_foodEventItems)//remove old events
+            _foodEventItems.addAll(_foodEventItems) //add new events
             rcyFoodEvents.adapter!!.notifyDataSetChanged()
         })
     }
