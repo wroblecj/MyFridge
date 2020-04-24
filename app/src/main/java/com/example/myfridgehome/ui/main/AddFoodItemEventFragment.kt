@@ -27,7 +27,7 @@ class AddFoodItemEventFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
     private var food = Food()
     private var _foodId = ""
-    private var _foodItemsEvent = ArrayList<AddFoodEvent>()
+    private var _foodItems = ArrayList<AddFoodEvent>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +38,7 @@ class AddFoodItemEventFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        activity.let{
+        activity.let {
             viewModel = ViewModelProviders.of(it!!).get(MainViewModel::class.java)
         }
         viewModel.recipes.observe(viewLifecycleOwner, Observer { _food_items ->
@@ -50,44 +50,33 @@ class AddFoodItemEventFragment : Fragment() {
                 )
             )
         })
-        btnSaveFoodItem.setOnClickListener{
+        btnSaveFoodItem.setOnClickListener {
             saveEvent()
         }
 
-        actFoodName.setOnItemClickListener{parent, view, position, id ->
+        actFoodName.setOnItemClickListener { parent, view, position, id ->
             var selectedFood = parent.getItemAtPosition(position) as Food
             _foodId = selectedFood.foodID
         }
+
         //connect recycler view
         rcyFoodEvents.hasFixedSize()
         rcyFoodEvents.layoutManager = LinearLayoutManager(context)
         rcyFoodEvents.itemAnimator = DefaultItemAnimator()
-        rcyFoodEvents.adapter = EventsAdapter(_foodItemsEvent, R.layout.row_layout)
+        rcyFoodEvents.adapter = EventsAdapter(_foodItems, R.layout.row_layout)
 
-        viewModel.events.observe(this, Observer {
-                events ->
-            _foodItemsEvent.addAll(events) //add new events
+        viewModel.foodItems.observe(this, Observer { events ->
+            _foodItems.removeAll(_foodItems)//remove old events
+            _foodItems.addAll(_foodItems) //add new events
             rcyFoodEvents.adapter!!.notifyDataSetChanged()
         })
     }
 
-    private fun deleteItem() {
-        var event = AddFoodEvent()
-        with(event){
-            item = actFoodName.text.toString()
-            type = actFoodCategory.text.toString()
-            number = edtNumber.text.toString()
-            units = actUnitOfMeasurement.text.toString()
-            foodID = _foodId
-        }
-        viewModel.deleteFoodItem(event)
-        clearAll()
-    }
 
     private fun saveEvent() {
         storeFood()
         var event = AddFoodEvent()
-        with(event){
+        with(event) {
             item = actFoodName.text.toString()
             type = actFoodCategory.text.toString()
             number = edtNumber.text.toString()
@@ -100,7 +89,7 @@ class AddFoodItemEventFragment : Fragment() {
     }
 
     private fun storeFood() {
-        food.apply{
+        food.apply {
             item = actFoodName.text.toString()
             type = actFoodCategory.text.toString()
             number = edtNumber.text.toString()
@@ -116,7 +105,9 @@ class AddFoodItemEventFragment : Fragment() {
         edtNumber.setText("")
         actUnitOfMeasurement.setText("")
     }
-    inner class EventsAdapter(val events: List<AddFoodEvent>, val itemLayout : Int) : RecyclerView.Adapter<AddFoodItemEventFragment.EventViewHolder>(){
+
+    inner class EventsAdapter(val events: List<AddFoodEvent>, val itemLayout: Int) :
+        RecyclerView.Adapter<AddFoodItemEventFragment.EventViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(itemLayout, parent, false)
             return EventViewHolder(view)
@@ -134,10 +125,10 @@ class AddFoodItemEventFragment : Fragment() {
 
     }
 
-    inner class EventViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+    inner class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var lblEventInfo: TextView = itemView.findViewById(R.id.lblFoodEventInfo)
 
-        fun updateEvent(event: AddFoodEvent){ //this function is called for each item in the collection that should be added to the recyclerview
+        fun updateEvent(event: AddFoodEvent) { //this function is called for each item in the collection that should be added to the recyclerview
             lblEventInfo.text = event.toString()
         }
     }

@@ -6,13 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.myfridgehome.R
 import com.example.myfridgehome.dto.AddFoodEvent
 import com.example.myfridgehome.dto.Food
@@ -28,7 +24,6 @@ class EditFoodItemEventFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
     private var food = Food()
     private var _foodId = ""
-    private var _foodItems = ArrayList<Food>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -84,17 +79,6 @@ class EditFoodItemEventFragment : Fragment() {
             }
 
         }
-        //connect recycler view
-        rcyFoodEvents.hasFixedSize()
-        rcyFoodEvents.layoutManager = LinearLayoutManager(context)
-        rcyFoodEvents.itemAnimator = DefaultItemAnimator()
-        rcyFoodEvents.adapter = EventsAdapter(_foodItems, R.layout.row_layout)
-
-        viewModel.foodItems.observe(this, Observer { events ->
-            _foodItems.removeAll(_foodItems)//remove old events
-            _foodItems.addAll(events) //add new events
-            rcyFoodEvents.adapter!!.notifyDataSetChanged()
-        })
     }
 
     private fun deleteItem() {
@@ -143,30 +127,4 @@ class EditFoodItemEventFragment : Fragment() {
         actUnitOfMeasurement.setText("")
     }
 
-    inner class EventsAdapter(val events: List<Food>, val itemLayout: Int) :
-        RecyclerView.Adapter<EditFoodItemEventFragment.EventViewHolder>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(itemLayout, parent, false)
-            return EventViewHolder(view)
-        }
-
-        override fun getItemCount(): Int {
-            return events.size
-        }
-
-        override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
-            val addFood = events.get(position)
-            holder.updateEvent(addFood)
-        }
-
-
-    }
-
-    inner class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private var lblEventInfo: TextView = itemView.findViewById(R.id.lblFoodEventInfo)
-
-        fun updateEvent(food: Food) { //this function is called for each item in the collection that should be added to the recyclerview
-            lblEventInfo.text = food.toString()
-        }
-    }
 }

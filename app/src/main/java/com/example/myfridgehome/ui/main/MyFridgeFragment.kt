@@ -5,7 +5,6 @@ import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -71,12 +70,13 @@ class MyFridgeFragment : Fragment() {
         recyclerView_Fridge.itemAnimator = DefaultItemAnimator()
         recyclerView_Fridge.adapter = EventsAdapter(_foodItems, R.layout.row_layout)
 
-        viewModel.foodItems.observe(this, Observer { events ->
+        viewModel.foodItems.observe(this, Observer { items ->
             _foodItems.removeAll(_foodItems)//remove old events
-            _foodItems.addAll(events) //add new events
+            _foodItems.addAll(items) //add new events
             recyclerView_Fridge.adapter!!.notifyDataSetChanged()
         })
     }
+
     inner class EventsAdapter(val events: List<Food>, val itemLayout: Int) :
         RecyclerView.Adapter<MyFridgeFragment.EventViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
@@ -95,6 +95,7 @@ class MyFridgeFragment : Fragment() {
 
 
     }
+
     private fun writeFoodsToList(foods: List<Food>) {
         val foodEditor = PreferenceManager.getDefaultSharedPreferences(this.context).edit()
         val jsonString = Gson().toJson(foods)
@@ -110,6 +111,7 @@ class MyFridgeFragment : Fragment() {
         else
             listOf()
     }
+
     inner class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var lblEventInfo: TextView = itemView.findViewById(R.id.lblFoodEventInfo)
 
