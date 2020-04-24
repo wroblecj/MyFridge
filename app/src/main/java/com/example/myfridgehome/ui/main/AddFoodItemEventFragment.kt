@@ -1,15 +1,14 @@
 package com.example.myfridgehome.ui.main
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -42,6 +41,15 @@ class AddFoodItemEventFragment : Fragment() {
         activity.let{
             viewModel = ViewModelProviders.of(it!!).get(MainViewModel::class.java)
         }
+        viewModel.recipes.observe(viewLifecycleOwner, Observer { _food_items ->
+            actFoodName.setAdapter(
+                ArrayAdapter(
+                    context!!,
+                    R.layout.support_simple_spinner_dropdown_item,
+                    _food_items
+                )
+            )
+        })
         btnSaveFoodItem.setOnClickListener{
             saveEvent()
         }

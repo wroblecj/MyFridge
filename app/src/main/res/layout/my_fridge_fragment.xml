@@ -67,9 +67,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_Fridge"
-        android:layout_width="394dp"
+        android:layout_width="0dp"
         android:layout_height="176dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:background="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"

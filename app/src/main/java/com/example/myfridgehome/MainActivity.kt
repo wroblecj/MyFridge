@@ -1,16 +1,15 @@
 package com.example.myfridgehome
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import com.example.myfridgehome.ui.main.*
-import kotlinx.android.synthetic.main.main_fragment.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var detector: GestureDetectorCompat
@@ -28,9 +27,10 @@ class MainActivity : AppCompatActivity() {
         }
         detector = GestureDetectorCompat(this, FridgeGestureListener())
     }
-    inner class FridgeGestureListener : GestureDetector.SimpleOnGestureListener(){
 
-        private val  SWIPE_THRESHOLD = 100
+    inner class FridgeGestureListener : GestureDetector.SimpleOnGestureListener() {
+
+        private val SWIPE_THRESHOLD = 100
         private val SWIPE_VELOCITY_THRESHOLD = 100
 
         override fun onFling(
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             return if (Math.abs(diffX) > Math.abs(diffY)) {
                 // this is a left or right swipe
                 if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
-                    if (diffX > 0 ) {
+                    if (diffX > 0) {
                         // right swipe
                         this@MainActivity.onSwipeRight()
                     } else {
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                         this@MainActivity.onLeftSwipe()
                     }
                     true
-                } else  {
+                } else {
                     super.onFling(downEvent, moveEvent, velocityX, velocityY)
                 }
             } else {
@@ -73,6 +73,7 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
     internal fun startFridgeFragment() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, MyFridgeFragment.newInstance())
@@ -96,6 +97,7 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.container, GroceryListFragment.newInstance())
             .commitNow()
     }
+
     internal fun startEditFoodsFragment() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, EditFoodItemEventFragment.newInstance())
@@ -107,6 +109,7 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.container, AddFoodItemEventFragment.newInstance())
             .commitNow()
     }
+
     private fun onSwipeBottom() {
         Toast.makeText(this, "Bottom Swipe", Toast.LENGTH_LONG).show()
     }
@@ -118,9 +121,11 @@ class MainActivity : AppCompatActivity() {
     internal fun onLeftSwipe() {
         Toast.makeText(this, "Left Swipe", Toast.LENGTH_LONG).show()
     }
+
     internal fun onSwipeRight() {
         Toast.makeText(this, "Right Swipe", Toast.LENGTH_LONG).show()
     }
+
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         return if (detector.onTouchEvent(event)) {
             true
@@ -128,12 +133,14 @@ class MainActivity : AppCompatActivity() {
             super.onTouchEvent(event)
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         val inflater = menuInflater
         inflater.inflate(R.menu.my_fridge_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {

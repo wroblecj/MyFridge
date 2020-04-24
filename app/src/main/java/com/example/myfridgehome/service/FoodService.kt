@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.myfridgehome.RetrofitClientInstance
 import com.example.myfridgehome.dao.IFoodItemDAO
-import com.example.myfridgehome.dto.Recipes
+import com.example.myfridgehome.dto.Food
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -13,29 +13,29 @@ private val TAG: String = FoodService::class.java.simpleName
 
 class FoodService {
 
-    fun fetchFoods(): MutableLiveData<ArrayList<Recipes>> {
+    fun fetchFoods(): MutableLiveData<ArrayList<Food>> {
         Log.d(TAG, "Fetch Started")
-        var _countries = MutableLiveData<ArrayList<Recipes>>()
+        var _foods = MutableLiveData<ArrayList<Food>>()
         val service = RetrofitClientInstance.retrofitInstance?.create(IFoodItemDAO::class.java)
-        val call = service?.getAllRecipes()
+        val call = service?.listAllFoodSuggestions()
         Log.d(TAG, "Before Call")
-        call?.enqueue(object : Callback<ArrayList<Recipes>> {
-            override fun onFailure(call: Call<ArrayList<Recipes>>, t: Throwable) {
+        call?.enqueue(object : Callback<ArrayList<Food>> {
+            override fun onFailure(call: Call<ArrayList<Food>>, t: Throwable) {
                 Log.d(TAG, "Call Failed!")
 
             }
 
             override fun onResponse(
-                call: Call<ArrayList<Recipes>>,
-                response: Response<ArrayList<Recipes>>
+                call: Call<ArrayList<Food>>,
+                response: Response<ArrayList<Food>>
             ) {
                 Log.d(TAG, "Inside OnRespond")
-                _countries.value = response.body()
+                _foods.value = response.body()
             }
 
         })
 
 
-        return _countries
+        return _foods
     }
 }

@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitClientInstance {
     private var retrofit: Retrofit? = null
     private val BASE_URL = "https://vibrantartgroup.com"
-    var gson : Gson = GsonBuilder().setLenient().create()
+    var gson: Gson = GsonBuilder().setLenient().create()
 
     val retrofitInstance: Retrofit?
         get() {
