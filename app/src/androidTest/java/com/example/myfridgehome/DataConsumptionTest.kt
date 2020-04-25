@@ -3,9 +3,7 @@ package com.example.myfridgehome
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.myfridgehome.dto.Food
-import com.example.myfridgehome.service.FoodService
 import com.example.myfridgehome.ui.main.MainViewModel
-import io.mockk.mockk
 import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
@@ -18,7 +16,6 @@ class DataConsumptionTest {
     @get:Rule
     var rule: TestRule =  InstantTaskExecutorRule()
     lateinit var mvm:MainViewModel
-    var foodService = mockk<FoodService>()
 
     @Test
     fun addition_isCorrect() {
