@@ -62,7 +62,7 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    internal fun fetchEvents() {
+    internal fun fetchFoodEvents() {
         val eventsCollection = firestore.collection("foodItems")
             .document(food.foodID)
             .collection("events")
@@ -130,4 +130,7 @@ class MainViewModel : ViewModel() {
         set(value) {
             _foodItems = value
         }
+    internal var foodService : FoodService
+        get() { return _foodService }
+        set(value) {_foodService = value}
 }

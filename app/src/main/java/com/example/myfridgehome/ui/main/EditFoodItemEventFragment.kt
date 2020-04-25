@@ -80,7 +80,7 @@ class EditFoodItemEventFragment : Fragment() {
                 actUnitOfMeasurement.setText(food.units)
                 _foodId = food.foodID
                 viewModel.food = food
-                viewModel.fetchEvents()
+                viewModel.fetchFoodEvents()
             }
 
         }
